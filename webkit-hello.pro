@@ -9,3 +9,15 @@ QT -= declarative
 macx {
     CONFIG -= app_bundle
 }
+
+# deployment script
+source = $$PWD/html
+source = $$replace(source, /, \\)
+target = $$OUT_PWD/html
+target = $$replace(target, /, \\)
+copydata.commands = $(COPY_DIR) \"$$source\" \"$$target\"
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata
+

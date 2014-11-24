@@ -18,7 +18,6 @@ private slots:
 
 private:
     Page * m_page;
-    bool m_isFinished;
 };
 
 #endif // APPWINDOW_H
